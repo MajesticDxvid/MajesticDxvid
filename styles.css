@@ -160,12 +160,12 @@ body {
 }
 
 .edit-card {
-  height: 160px;
-  background: #1a1a1a;
-  border-radius: 10px;
-  transition: 0.25s;
+  height: 250px; /* taller so 16:9 fits better */
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  transition: 0.4s ease;
 }
 
 /* Hover effect on video cards */
@@ -240,4 +240,30 @@ body {
 .portfolio-grid img:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px #4db8ff;
+}
+/* Slide animations */
+.slide-left {
+  opacity: 0;
+  transform: translateX(-80px);
+  animation: slideLeft 1s forwards;
+}
+
+.slide-right {
+  opacity: 0;
+  transform: translateX(80px);
+  animation: slideRight 1s forwards;
+}
+
+@keyframes slideLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
