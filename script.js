@@ -4,7 +4,7 @@ function openVideo(videoId) {
   const frame = document.getElementById("videoFrame");
 
   frame.src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
-  modal.style.display = "flex";
+  modal.classList.add("show");
 }
 
 function closeVideo() {
@@ -12,7 +12,7 @@ function closeVideo() {
   const frame = document.getElementById("videoFrame");
 
   frame.src = "";
-  modal.style.display = "none";
+  modal.classList.remove("show");
 }
 
 document.getElementById("year").textContent = new Date().getFullYear();
