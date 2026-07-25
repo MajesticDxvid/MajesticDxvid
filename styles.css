@@ -318,3 +318,100 @@ body {
   color: white;
   cursor: pointer;
 }
+/* CAROUSEL */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  animation: carouselSlide 18s linear infinite;
+}
+
+@keyframes carouselSlide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.carousel-item {
+  width: 320px;     /* perfect size for 3 visible thumbnails */
+  height: 180px;    /* 16:9 ratio */
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hover zoom (safe, no overlap) */
+.carousel-item:hover {
+  transform: scale(1.03);
+}
+
+/* Fade edges */
+.fade-left,
+.fade-right {
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.fade-left {
+  left: 0;
+  background: linear-gradient(to right, rgba(13,13,13,1), rgba(13,13,13,0));
+}
+
+.fade-right {
+  right: 0;
+  background: linear-gradient(to left, rgba(13,13,13,1), rgba(13,13,13,0));
+}
+
+/* POPUP VIDEO */
+.video-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.video-modal.show {
+  display: flex;
+}
+
+.video-content {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+}
+
+#videoFrame {
+  width: 100%;
+  height: 500px;
+  border-radius: 12px;
+}
+
+.close-btn {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
