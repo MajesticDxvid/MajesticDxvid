@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background: #0d0d0d;
   color: white;
 }
@@ -16,7 +16,7 @@ body {
 
 .nav-left {
   font-size: 1.4rem;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .nav-right a {
@@ -24,6 +24,7 @@ body {
   text-decoration: none;
   color: #ccc;
   font-size: 0.95rem;
+  font-weight: 500;
 }
 
 .discord {
@@ -31,6 +32,7 @@ body {
   padding: 8px 14px;
   border-radius: 6px;
   color: white !important;
+  font-weight: 600;
 }
 
 /* HERO SECTION */
@@ -49,6 +51,8 @@ body {
 
 .hero-left h1 {
   font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -1px;
   margin-bottom: 20px;
 }
 
@@ -56,6 +60,7 @@ body {
   font-size: 1.1rem;
   color: #ddd;
   margin-bottom: 30px;
+  font-weight: 500;
 }
 
 .hero-buttons .btn,
@@ -65,7 +70,7 @@ body {
   margin-right: 10px;
   border-radius: 6px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 700;
   text-transform: lowercase;
 }
 
@@ -92,15 +97,17 @@ body {
   width: 260px;
   backdrop-filter: blur(10px);
   line-height: 1.6;
+  font-weight: 500;
 }
 
-/* RECENT EDITS */
+/* RECENT WORK */
 .recent {
   padding: 60px 40px;
 }
 
 .recent h2 {
   font-size: 1.8rem;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
@@ -121,4 +128,5 @@ body {
   text-align: center;
   padding: 20px;
   color: #aaa;
+  font-weight: 500;
 }
