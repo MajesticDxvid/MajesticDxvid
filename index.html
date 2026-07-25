@@ -58,31 +58,39 @@
   <div class="video-slider">
     <div class="video-track">
 
-      <a href="https://youtu.be/YxnhmgRzfX8" target="_blank" class="video-slide">
+      <div class="video-slide" onclick="openVideo('YxnhmgRzfX8')">
         <img src="images/image42.png">
-      </a>
+      </div>
 
-      <a href="https://youtu.be/7OX5Z8wPNbk" target="_blank" class="video-slide">
+      <div class="video-slide" onclick="openVideo('7OX5Z8wPNbk')">
         <img src="images/speamance.png">
-      </a>
+      </div>
 
-      <a href="https://youtu.be/5ieu8j_g48g" target="_blank" class="video-slide">
+      <div class="video-slide" onclick="openVideo('5ieu8j_g48g')">
         <img src="images/image43.png">
-      </a>
+      </div>
 
       <!-- duplicates for smooth infinite loop -->
-      <a href="https://youtu.be/YxnhmgRzfX8" target="_blank" class="video-slide">
+      <div class="video-slide" onclick="openVideo('YxnhmgRzfX8')">
         <img src="images/image42.png">
-      </a>
+      </div>
 
-      <a href="https://youtu.be/7OX5Z8wPNbk" target="_blank" class="video-slide">
+      <div class="video-slide" onclick="openVideo('7OX5Z8wPNbk')">
         <img src="images/speamance.png">
-      </a>
+      </div>
 
-      <a href="https://youtu.be/5ieu8j_g48g" target="_blank" class="video-slide">
+      <div class="video-slide" onclick="openVideo('5ieu8j_g48g')">
         <img src="images/image43.png">
-      </a>
+      </div>
 
     </div>
   </div>
 </section>
+
+<!-- VIDEO POPUP -->
+<div id="videoModal" class="video-modal">
+  <div class="video-content">
+    <span class="close-btn" onclick="closeVideo()">×</span>
+    <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
