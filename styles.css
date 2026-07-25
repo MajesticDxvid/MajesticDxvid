@@ -153,3 +153,18 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px #4db8ff;
+}
+
+.btn-outline:hover {
+  background: #4db8ff;
+  color: #000;
+  transform: translateY(-3px);
+}
+
+.edit-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #4db8ff;
+}
