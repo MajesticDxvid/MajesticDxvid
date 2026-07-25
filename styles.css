@@ -254,43 +254,48 @@ body {
   animation: slideLoop 18s linear infinite;
 }
 
-.video-slide {
-  width: 260px;        /* compact size */
-  height: 150px;       /* keeps row small */
-  flex-shrink: 0;
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.video-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;   /* prevents squishing */
-  border-radius: 12px;
-}
-
-/* continuous sliding */
 @keyframes slideLoop {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-/* hover effect */
+.video-slide {
+  width: 260px;
+  height: 150px;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.25s ease;
+}
+
+.video-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* hover: slightly bigger */
 .video-slide:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 20px #4db8ff;
 }
+
 /* VIDEO POPUP */
 .video-modal {
   display: none;
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);   /* blur background */
   justify-content: center;
   align-items: center;
   z-index: 9999;
+}
+
+.video-modal.show {
+  display: flex;
 }
 
 .video-content {
