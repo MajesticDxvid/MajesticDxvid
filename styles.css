@@ -241,44 +241,46 @@ body {
   transform: scale(1.05);
   box-shadow: 0 0 20px #4db8ff;
 }
-/* Continuous slider */
-.slider {
-  overflow: hidden;
-  position: relative;
+/* VIDEO SLIDER */
+.video-slider {
   width: 100%;
-  margin-top: 40px;
+  overflow: hidden;
+  padding: 20px 0;
 }
 
-.slide-track {
+.video-track {
   display: flex;
-  width: calc(250px * 6); /* 6 slides */
-  animation: scroll 20s linear infinite;
+  gap: 20px;
+  animation: slideLoop 18s linear infinite;
 }
 
-@keyframes scroll {
+.video-slide {
+  width: 260px;        /* compact size */
+  height: 150px;       /* keeps row small */
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.video-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* prevents squishing */
+  border-radius: 12px;
+  animation: fadeLoop 3s ease-in-out infinite;
+}
+
+/* continuous sliding */
+@keyframes slideLoop {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-.slide {
-  width: 250px;
-  height: 140px;
-  margin-right: 20px;
-  flex-shrink: 0;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: 0.3s;
+/* fade in/out */
+@keyframes fadeLoop {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
 }
 
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* preserves 1920x1080 ratio */
-  border-radius: 12px;
-}
-
-/* Hover effect */
-.slide:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 20px #4db8ff;
-}
