@@ -268,7 +268,6 @@ body {
   height: 100%;
   object-fit: cover;   /* prevents squishing */
   border-radius: 12px;
-  animation: fadeLoop 3s ease-in-out infinite;
 }
 
 /* continuous sliding */
@@ -277,10 +276,8 @@ body {
   100% { transform: translateX(-50%); }
 }
 
-/* fade in/out */
-@keyframes fadeLoop {
-  0% { opacity: 0.3; }
-  50% { opacity: 1; }
-  100% { opacity: 0.3; }
+/* hover effect */
+.video-slide:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px #4db8ff;
 }
-
