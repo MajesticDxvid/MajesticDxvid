@@ -175,9 +175,9 @@ body {
 }
 
 /* Example thumbnails (replace with your own images) */
-.edit-card:nth-child(1) { background-image: url('images/video1.jpg'); }
-.edit-card:nth-child(2) { background-image: url('images/video2.jpg'); }
-.edit-card:nth-child(3) { background-image: url('images/video3.jpg'); }
+.edit-card:nth-child(1) { background-image: url('images/image42.png'); }
+.edit-card:nth-child(2) { background-image: url('images/speamance.jpg'); }
+.edit-card:nth-child(3) { background-image: url('images/image43.jpg'); }
 
 /* FOOTER */
 .footer {
