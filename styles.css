@@ -1,46 +1,108 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #0f0f0f;
+  background: #0d0d0d;
   color: white;
 }
 
-.header {
-  background: #1a1a1a;
-  padding: 15px;
+/* NAVBAR */
+.topnav {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
 }
 
-.logo {
+.topnav .logo {
   font-size: 1.4rem;
   font-weight: bold;
 }
 
-.nav a {
+.topnav nav a {
+  margin-left: 20px;
   color: #ccc;
-  margin-left: 15px;
   text-decoration: none;
 }
 
-.nav a:hover {
+.discord-btn {
+  background: #5865F2;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: white !important;
+}
+
+/* HERO SECTION */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  padding: 80px 40px;
+  background: url('https://wallpapercave.com/wp/wp6946781.jpg') center/cover no-repeat;
+  background-blend-mode: darken;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.hero-left {
+  max-width: 50%;
+}
+
+.hero-left h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+.hero-left p {
+  font-size: 1.1rem;
+  color: #ddd;
+  margin-bottom: 30px;
+}
+
+.hero-buttons .btn,
+.hero-buttons .btn-outline {
+  display: inline-block;
+  padding: 12px 22px;
+  margin-right: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn {
+  background: #4db8ff;
+  color: #000;
+}
+
+.btn-outline {
+  border: 2px solid #4db8ff;
   color: #4db8ff;
 }
 
-.hero {
-  padding: 60px 20px;
-  text-align: center;
-  background: #111;
+/* PROFILE CARD */
+.hero-right {
+  display: flex;
+  align-items: center;
 }
 
-.section {
-  padding: 40px 20px;
+.profile-card {
+  background: rgba(0,0,0,0.7);
+  padding: 25px;
+  border-radius: 12px;
+  width: 260px;
+  backdrop-filter: blur(10px);
 }
 
-.footer {
-  text-align: center;
-  padding: 20px;
+/* RECENT EDITS */
+.recent-edits {
+  padding: 60px 40px;
+}
+
+.edit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.edit-card {
+  height: 160px;
   background: #1a1a1a;
-  color: #aaa;
-}
+  border-radius: 10px;
