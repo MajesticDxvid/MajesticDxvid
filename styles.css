@@ -27,6 +27,10 @@ body {
   font-weight: 500;
 }
 
+.nav-right a:hover {
+  color: #4db8ff;
+}
+
 .discord {
   background: #5865F2;
   padding: 8px 14px;
@@ -43,17 +47,42 @@ body {
   background: url('https://wallpapercave.com/wp/wp6946781.jpg') center/cover no-repeat;
   background-color: rgba(0,0,0,0.55);
   background-blend-mode: darken;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated gradient overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(120deg, #4db8ff, #5865F2, #ff4df0);
+  background-size: 300% 300%;
+  animation: gradientMove 12s ease infinite;
+  opacity: 0.25;
+  z-index: -1;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .hero-left {
   max-width: 50%;
 }
 
+/* Gradient text like screenshot */
 .hero-left h1 {
   font-size: 2.8rem;
   font-weight: 800;
   letter-spacing: -1px;
   margin-bottom: 20px;
+  background: linear-gradient(90deg, #4db8ff, #5865F2, #ff4df0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-left p {
@@ -72,6 +101,7 @@ body {
   text-decoration: none;
   font-weight: 700;
   text-transform: lowercase;
+  transition: 0.25s;
 }
 
 .btn {
@@ -82,6 +112,18 @@ body {
 .btn-outline {
   border: 2px solid #4db8ff;
   color: #4db8ff;
+}
+
+/* Button hover effects */
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px #4db8ff;
+}
+
+.btn-outline:hover {
+  background: #4db8ff;
+  color: #000;
+  transform: translateY(-3px);
 }
 
 /* PROFILE CARD */
@@ -121,7 +163,21 @@ body {
   height: 160px;
   background: #1a1a1a;
   border-radius: 10px;
+  transition: 0.25s;
+  background-size: cover;
+  background-position: center;
 }
+
+/* Hover effect on video cards */
+.edit-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #4db8ff;
+}
+
+/* Example thumbnails (replace with your own images) */
+.edit-card:nth-child(1) { background-image: url('images/video1.jpg'); }
+.edit-card:nth-child(2) { background-image: url('images/video2.jpg'); }
+.edit-card:nth-child(3) { background-image: url('images/video3.jpg'); }
 
 /* FOOTER */
 .footer {
@@ -130,41 +186,58 @@ body {
   color: #aaa;
   font-weight: 500;
 }
-/* ANIMATED GRADIENT */
-.hero {
-  position: relative;
-  overflow: hidden;
+
+/* COMMISSIONS PAGE */
+.commission-section {
+  padding: 80px 40px;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(120deg, #4db8ff, #5865F2, #ff4df0);
-  background-size: 300% 300%;
-  animation: gradientMove 12s ease infinite;
-  opacity: 0.25;
-  z-index: -1;
+.commission-section h1 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
 }
 
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.commission-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
 }
-.btn:hover {
-  transform: translateY(-3px);
+
+.commission-card {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.commission-card:hover {
+  transform: translateY(-5px);
   box-shadow: 0 0 20px #4db8ff;
 }
 
-.btn-outline:hover {
-  background: #4db8ff;
-  color: #000;
-  transform: translateY(-3px);
+/* PORTFOLIO PAGE */
+.portfolio-section {
+  padding: 80px 40px;
 }
 
-.edit-card:hover {
+.portfolio-section h1 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.portfolio-grid img {
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.portfolio-grid img:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px #4db8ff;
 }
