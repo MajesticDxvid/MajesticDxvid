@@ -267,6 +267,13 @@ section.recent {
   max-width: 900px;
 }
 
+/* make video full size, not chopped */
+#videoFrame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+}
+
 .close-btn {
   position: absolute;
   top: -40px;
@@ -284,5 +291,7 @@ section.recent {
 iframe,
 #modelFrame {
   width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
   border-radius: 12px;
 }
