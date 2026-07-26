@@ -297,3 +297,45 @@ section.recent {
   font-size: 1rem;
   font-weight: 700;
 }
+.contact-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.contact-desc {
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.contact-btn {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 16px;
+  width: 220px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  text-decoration: none;
+  color: white;
+  transition: 0.2s;
+}
+
+.contact-btn:hover {
+  transform: scale(1.05);
+}
+
+.contact-btn span {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.discord-btn {
+  background: rgba(90, 140, 255, 0.25);
+  border: 1px solid rgba(120, 160, 255, 0.4);
+}
