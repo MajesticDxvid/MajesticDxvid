@@ -16,3 +16,11 @@ function closeVideo() {
 }
 
 document.getElementById("year").textContent = new Date().getFullYear();
+function openModel(src) {
+  document.getElementById("modelFrame").src = src;
+  document.getElementById("modelModal").classList.add("show");
+}
+
+function closeModel() {
+  document.getElementById("modelModal").classList.remove("show");
+}
