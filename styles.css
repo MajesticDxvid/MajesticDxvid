@@ -116,6 +116,17 @@ h2 {
 }
 
 /* --------------------------------------------------
+   SECTION SPACING
+-------------------------------------------------- */
+section.recent {
+  padding: 80px 40px;
+}
+
+#contact {
+  margin-top: 100px;
+}
+
+/* --------------------------------------------------
    CAROUSEL SHARED
 -------------------------------------------------- */
 .carousel-container {
@@ -131,16 +142,17 @@ h2 {
   animation: carouselSlide 18s linear infinite;
 }
 
-.carousel-item {
-  min-width: 350px;
-  height: 350px;
+/* VIDEO THUMBNAILS — 3 per row, 16:9, not squished */
+.carousel-track .carousel-item {
+  min-width: 420px;
+  height: 240px;
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   transition: 0.2s;
 }
 
-.carousel-item img {
+.carousel-track .carousel-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -150,12 +162,12 @@ h2 {
   transform: scale(1.05);
 }
 
-/* Fade edges */
+/* Fade edges — smoother + deeper */
 .fade-left,
 .fade-right {
   position: absolute;
   top: 0;
-  width: 120px;
+  width: 200px;
   height: 100%;
   z-index: 10;
   pointer-events: none;
@@ -163,12 +175,12 @@ h2 {
 
 .fade-left {
   left: 0;
-  background: linear-gradient(to right, #0d0d0d, transparent);
+  background: linear-gradient(to right, #0d0d0d 60%, transparent);
 }
 
 .fade-right {
   right: 0;
-  background: linear-gradient(to left, #0d0d0d, transparent);
+  background: linear-gradient(to left, #0d0d0d 60%, transparent);
 }
 
 /* Animation */
