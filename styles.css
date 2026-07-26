@@ -335,6 +335,14 @@ body {
   gap: 20px;
   animation: carouselSlide 18s linear infinite;
 }
+.models-track {
+  animation: carouselSlide 18s linear infinite;
+}
+
+.models-track .carousel-item {
+  width: 500px;
+  height: 500px;
+}
 
 @keyframes carouselSlide {
   0% { transform: translateX(0); }
