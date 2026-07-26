@@ -419,3 +419,29 @@ body {
   color: white;
   cursor: pointer;
 }
+.contact-box {
+  margin: 60px auto 40px auto;
+  padding: 20px 30px;
+  width: 260px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid #4db8ff;
+  transition: transform 0.2s ease;
+}
+
+.contact-box h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.contact-box p {
+  margin: 8px 0 0 0;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.contact-box:hover {
+  transform: scale(1.05);
+}
