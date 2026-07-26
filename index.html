@@ -15,10 +15,11 @@
 
   <!-- NAVBAR -->
   <header class="navbar">
-    <div class="nav-left">MajesticDxvid</div>
+    <div class="nav-left">Majestic<span>Dxvid</span></div>
     <nav class="nav-right">
       <a href="#home">home</a>
       <a href="#portfolio">portfolio</a>
+      <a href="#models">models</a>
       <a href="#creators">creators</a>
       <a href="#contact">get in touch</a>
       <a class="discord" href="https://discord.gg/B63g77JC4N" target="_blank">discord</a>
@@ -28,7 +29,9 @@
   <!-- HERO -->
   <section id="home" class="hero">
     <div class="hero-left">
-      <h1>I do  video editing and modelling commissions!</h1>
+      <span class="status-pill">open for commissions</span>
+
+      <h1>I do <span class="accent">video editing</span> and <span class="accent">modelling</span> commissions!</h1>
       <p>I specialise in short‑form edits, TikToks, long‑form videos, and SMP content. I also design custom Minecraft models, complete with textures, and build full texture packs tailored to any brief.</p>
 
       <div class="hero-buttons">
@@ -39,13 +42,45 @@
 
     <div class="hero-right">
       <div class="profile">
-        <p><strong>NAME:</strong> MajesticDxvid</p>
-        <p><strong>TIMEZONE:</strong> GMT</p>
-        <p><strong>FOCUS:</strong> video editing, modelling, texture packs</p>
-        <p><strong>STATUS:</strong> open for commissions</p>
-        <p><strong>4+ Years Video Editing</strong></p>
-        <p><strong>3+ Years Modelling</strong></p>
-        <p><strong>Texture Packs Created:</strong> 20+</p>
+        <div class="profile-row">
+          <div>
+            <span class="profile-label">NAME</span>
+            <span class="profile-value">MajesticDxvid</span>
+          </div>
+          <div>
+            <span class="profile-label">TIMEZONE</span>
+            <span class="profile-value">GMT</span>
+          </div>
+        </div>
+
+        <div class="profile-block">
+          <span class="profile-label">WHAT I DO</span>
+          <div class="tag-row">
+            <span class="tag">Video Editing</span>
+            <span class="tag">Modelling</span>
+            <span class="tag">Texture Packs</span>
+          </div>
+        </div>
+
+        <div class="profile-block">
+          <span class="profile-label">STATUS</span>
+          <p class="status-live"><span class="dot"></span>open for commissions</p>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat">
+            <span class="stat-num">4+</span>
+            <span class="stat-label">Years Editing</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">3+</span>
+            <span class="stat-label">Years Modelling</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">20+</span>
+            <span class="stat-label">Texture Packs</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -53,6 +88,7 @@
   <!-- RECENT EDITS -->
   <section id="portfolio" class="recent">
     <h2>Recent Edits</h2>
+    <p class="section-sub">Click a thumbnail to watch on YouTube</p>
 
     <div class="carousel-container">
       <div class="fade-left"></div>
@@ -116,6 +152,7 @@
   <!-- RECENT MODELS -->
   <section id="models" class="recent">
     <h2>Recent Models</h2>
+    <p class="section-sub">Click a model to view it full size</p>
 
     <div class="carousel-container">
       <div class="fade-left"></div>
@@ -175,10 +212,10 @@
       </div>
     </div>
   </section>
-  
+
 <!-- CREATORS -->
 <section id="creators" class="creators-section">
-  <h2>Creators</h2>
+  <h2>Creators I've Worked With</h2>
 
   <div class="creators-grid">
 
@@ -209,29 +246,39 @@
 
   </div>
 </section>
+
   <!-- CONTACT -->
   <section id="contact" class="contact-section">
     <h2>Get In Touch</h2>
-    <p>I offer video editing, modelling, and texture pack creation.</p>
+    <p class="section-sub">I offer video editing, modelling, and texture pack creation.</p>
 
     <div class="commission-cards">
 
       <div class="commission-card">
-        <h3>Video Editing</h3>
+        <div class="commission-head">
+          <h3>Video Editing</h3>
+          <span class="open-pill">OPEN</span>
+        </div>
         <p>Montages, SMP edits, cinematic cuts.</p>
-        <p><strong>Starting at £10</strong></p>
+        <p class="price">Starting at £10</p>
       </div>
 
       <div class="commission-card">
-        <h3>Modelling</h3>
+        <div class="commission-head">
+          <h3>Modelling</h3>
+          <span class="open-pill">OPEN</span>
+        </div>
         <p>Custom Minecraft models for servers or creators.</p>
-        <p><strong>Starting at £10</strong></p>
+        <p class="price">Starting at £10</p>
       </div>
 
       <div class="commission-card">
-        <h3>Texture Packs</h3>
+        <div class="commission-head">
+          <h3>Texture Packs</h3>
+          <span class="open-pill">OPEN</span>
+        </div>
         <p>Custom packs, recolours, themed visuals.</p>
-        <p><strong>Starting at £7</strong></p>
+        <p class="price">Starting at £7</p>
       </div>
 
     </div>
@@ -242,10 +289,14 @@
     </div>
   </section>
 
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> MajesticDxvid. All rights reserved.</p>
+  </footer>
+
   <!-- VIDEO POPUP -->
   <div id="videoModal" class="video-modal">
     <div class="video-content">
-      <span class="close-btn" onclick="closeVideo()">×</span>
+      <span class="close-btn" onclick="closeVideo()">&times;</span>
       <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
@@ -253,7 +304,7 @@
   <!-- MODEL POPUP -->
   <div id="modelModal" class="video-modal">
     <div class="video-content">
-      <span class="close-btn" onclick="closeModel()">×</span>
+      <span class="close-btn" onclick="closeModel()">&times;</span>
       <img id="modelFrame" src="" style="width:100%; border-radius:12px;">
     </div>
   </div>
