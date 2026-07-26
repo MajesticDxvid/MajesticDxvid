@@ -464,3 +464,41 @@ body {
 .contact-box:hover {
   transform: scale(1.05);
 }
+.contact-section {
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.commission-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px 0;
+}
+
+.commission-card {
+  background: #1a1a1a;
+  padding: 20px;
+  width: 260px;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.commission-card:hover {
+  transform: scale(1.03);
+}
+
+.contact-box {
+  margin: 40px auto;
+  padding: 20px 30px;
+  width: 260px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid #4db8ff;
+  transition: transform 0.2s ease;
+}
+
+.contact-box:hover {
+  transform: scale(1.05);
+}
