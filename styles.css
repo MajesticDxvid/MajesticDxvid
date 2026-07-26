@@ -1,226 +1,276 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>MajesticDxvid | Video Editor & Modeller</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+/* --------------------------------------------------
+   GLOBAL
+-------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <!-- FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #0d0d0d;
+  color: white;
+  overflow-x: hidden;
+}
 
-  <link rel="stylesheet" href="styles.css">
-</head>
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
 
-<body>
+/* --------------------------------------------------
+   NAVBAR
+-------------------------------------------------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #111;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="nav-left">MajesticDxvid</div>
-    <nav class="nav-right">
-      <a href="#home">home</a>
-      <a href="#portfolio">portfolio</a>
-      <a href="#contact">get in touch</a>
-      <a class="discord" href="https://discord.gg/B63g77JC4N" target="_blank">discord</a>
-    </nav>
-  </header>
+.nav-left {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
 
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <div class="hero-left">
-      <h1>I do minecraft video editing and modelling commissions</h1>
-      <p>freelance video editor & modeller. montage cuts, SMP edits, custom models, texture packs — whatever the brief needs.</p>
+.nav-right a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: 0.2s;
+}
 
-      <div class="hero-buttons">
-        <a class="btn" href="#portfolio">view work</a>
-        <a class="btn-outline" href="#contact">get in touch</a>
-      </div>
-    </div>
+.nav-right a:hover {
+  color: #4db8ff;
+}
 
-    <div class="hero-right">
-      <div class="profile">
-        <p><strong>NAME:</strong> MajesticDxvid</p>
-        <p><strong>TIMEZONE:</strong> GMT</p>
-        <p><strong>FOCUS:</strong> video editing, modelling, texture packs</p>
-        <p><strong>STATUS:</strong> open for commissions</p>
-        <p><strong>4+ Years Video Editing</strong></p>
-        <p><strong>3+ Years Modelling</strong></p>
-        <p><strong>Texture Packs Created:</strong> 20+</p>
-      </div>
-    </div>
-  </section>
+/* --------------------------------------------------
+   HERO SECTION
+-------------------------------------------------- */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  padding: 80px 40px;
+}
 
-  <!-- RECENT WORK -->
-<section id="portfolio" class="recent">
-  <h2>Recent Edits</h2>
+.hero-left {
+  width: 50%;
+}
 
-  <div class="carousel-container">
+.hero-left h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
 
-    <div class="fade-left"></div>
-    <div class="fade-right"></div>
+.hero-left p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
 
-    <div class="carousel-track">
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
 
-<div class="carousel-item" onclick="openVideo('-3_D7FKgdk0')">
-  <img src="images/G Spear.png">
-</div>
+.btn,
+.btn-outline {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s;
+}
 
-<div class="carousel-item" onclick="openVideo('YxnhmgRzfX8')">
-  <img src="images/image42.png">
-</div>
+.btn {
+  background: #4db8ff;
+  color: black;
+}
 
-<div class="carousel-item" onclick="openVideo('WwiqfQCL9BA')">
-  <img src="images/image23.png">
-</div>
+.btn-outline {
+  border: 2px solid #4db8ff;
+  color: #4db8ff;
+}
 
-<div class="carousel-item" onclick="openVideo('7OX5Z8wPNbk')">
-  <img src="images/smp.png">
-</div>
+.btn:hover {
+  background: #82d0ff;
+}
 
-<div class="carousel-item" onclick="openVideo('LMuISEy-XDM')">
-  <img src="images/aquatic.png">
-</div>
+.btn-outline:hover {
+  background: #4db8ff;
+  color: black;
+}
 
-<div class="carousel-item" onclick="openVideo('5ieu8j_g48g')">
-  <img src="images/image43.png">
-</div>
+.hero-right {
+  width: 40%;
+}
 
-<!-- duplicates for smooth infinite loop -->
-<div class="carousel-item" onclick="openVideo('-3_D7FKgdk0')">
-  <img src="images/G Spear.png">
-</div>
+.profile p {
+  margin-bottom: 10px;
+}
 
-<div class="carousel-item" onclick="openVideo('YxnhmgRzfX8')">
-  <img src="images/image42.png">
-</div>
+/* --------------------------------------------------
+   CAROUSEL SHARED
+-------------------------------------------------- */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 40px 0;
+}
 
-<div class="carousel-item" onclick="openVideo('WwiqfQCL9BA')">
-  <img src="images/image23.png">
-</div>
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  animation: carouselSlide 18s linear infinite;
+}
 
-<div class="carousel-item" onclick="openVideo('7OX5Z8wPNbk')">
-  <img src="images/smp.png">
-</div>
+.carousel-item {
+  min-width: 350px;
+  height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.2s;
+}
 
-<div class="carousel-item" onclick="openVideo('LMuISEy-XDM')">
-  <img src="images/aquatic.png">
-</div>
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-<div class="carousel-item" onclick="openVideo('5ieu8j_g48g')">
-  <img src="images/image43.png">
-</div>
-<section id="models" class="recent">
+.carousel-item:hover {
+  transform: scale(1.05);
+}
 
-  <h2>Recent Models</h2>
+/* Fade edges */
+.fade-left,
+.fade-right {
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
 
-  <div class="carousel-container">
+.fade-left {
+  left: 0;
+  background: linear-gradient(to right, #0d0d0d, transparent);
+}
 
-    <div class="fade-left"></div>
-    <div class="fade-right"></div>
+.fade-right {
+  right: 0;
+  background: linear-gradient(to left, #0d0d0d, transparent);
+}
 
-    <div class="carousel-track models-track">
+/* Animation */
+@keyframes carouselSlide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
 
-      <!-- 6 scrambled model items -->
-      <div class="carousel-item" onclick="openModel('images/Aquatic.png')">
-        <img src="images/Aquatic.png">
-      </div>
+/* --------------------------------------------------
+   MODELS CAROUSEL
+-------------------------------------------------- */
+.models-track {
+  animation: carouselSlide 18s linear infinite;
+}
 
-      <div class="carousel-item" onclick="openModel('images/midassword.png')">
-        <img src="images/midassword.png">
-      </div>
+.models-track .carousel-item {
+  min-width: 500px;
+  height: 500px;
+}
 
-      <div class="carousel-item" onclick="openModel('images/aquaticspear.png')">
-        <img src="images/aquaticspear.png">
-      </div>
+/* --------------------------------------------------
+   CONTACT SECTION
+-------------------------------------------------- */
+.contact-section {
+  padding: 60px 40px;
+  text-align: center;
+}
 
-      <div class="carousel-item" onclick="openModel('images/VIP sword.png')">
-        <img src="images/VIP sword.png">
-      </div>
+.commission-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px 0;
+}
 
-      <div class="carousel-item" onclick="openModel('images/aquatictrident.png')">
-        <img src="images/aquatictrident.png">
-      </div>
+.commission-card {
+  background: #111;
+  padding: 20px;
+  border-radius: 12px;
+  width: 250px;
+}
 
-      <div class="carousel-item" onclick="openModel('images/MVP sword.png')">
-        <img src="images/MVP sword.png">
-      </div>
+.contact-box {
+  margin-top: 20px;
+}
 
-      <!-- duplicates for infinite loop -->
-      <div class="carousel-item" onclick="openModel('images/Aquatic.png')">
-        <img src="images/Aquatic.png">
-      </div>
+.contact-box a {
+  color: #4db8ff;
+  font-weight: 600;
+  text-decoration: none;
+}
 
-      <div class="carousel-item" onclick="openModel('images/midassword.png')">
-        <img src="images/midassword.png">
-      </div>
+.contact-box a:hover {
+  text-decoration: underline;
+}
 
-      <div class="carousel-item" onclick="openModel('images/aquaticspear.png')">
-        <img src="images/aquaticspear.png">
-      </div>
+/* --------------------------------------------------
+   MODALS (Video + Model)
+-------------------------------------------------- */
+.video-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
 
-      <div class="carousel-item" onclick="openModel('images/VIP sword.png')">
-        <img src="images/VIP sword.png">
-      </div>
+.video-modal.show {
+  display: flex;
+}
 
-      <div class="carousel-item" onclick="openModel('images/aquatictrident.png')">
-        <img src="images/aquatictrident.png">
-      </div>
+.video-content {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+}
 
-      <div class="carousel-item" onclick="openModel('images/MVP sword.png')">
-        <img src="images/MVP sword.png">
-      </div>
+.close-btn {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 3rem;
+  cursor: pointer;
+  color: white;
+  transition: 0.2s;
+}
 
-    </div>
-  </div>
-</section>
-    </div>
-  </div>
-</section>
-<section id="contact" class="contact-section">
-  <h2>Get In Touch</h2>
-  <p>I offer video editing, modelling, and texture pack creation.</p>
+.close-btn:hover {
+  color: #4db8ff;
+}
 
-  <div class="commission-cards">
-
-    <div class="commission-card">
-      <h3>Video Editing</h3>
-      <p>Montages, SMP edits, cinematic cuts.</p>
-      <p><strong>Starting at £10</strong></p>
-    </div>
-
-    <div class="commission-card">
-      <h3>Modelling</h3>
-      <p>Custom Minecraft models for servers or creators.</p>
-      <p><strong>Starting at £10</strong></p>
-    </div>
-
-    <div class="commission-card">
-      <h3>Texture Packs</h3>
-      <p>Custom packs, recolours, themed visuals.</p>
-      <p><strong>Starting at £7</strong></p>
-    </div>
-
-  </div>
-
-  <div class="contact-box">
-    <h3>discord</h3>
-    <a href="https://discord.gg/zyron" target="_blank">discord.gg/zyron</a>
-  </div>
-</section>
-
-
-<!-- VIDEO POPUP -->
-<div id="videoModal" class="video-modal">
-  <div class="video-content">
-    <span class="close-btn" onclick="closeVideo()">×</span>
-    <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
-  </div>
-</div>
-<div id="modelModal" class="video-modal">
-  <div class="video-content">
-    <span class="close-btn" onclick="closeModel()">×</span>
-    <img id="modelFrame" src="" style="width:100%; border-radius:12px;">
-  </div>
-</div>
-<script src="script.js"></script>
-</body>
-</html>
+iframe,
+#modelFrame {
+  width: 100%;
+  border-radius: 12px;
+}
