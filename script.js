@@ -1,4 +1,5 @@
 document.getElementById("year").textContent = new Date().getFullYear();
+
 function openVideo(videoId) {
   const modal = document.getElementById("videoModal");
   const frame = document.getElementById("videoFrame");
@@ -15,7 +16,6 @@ function closeVideo() {
   modal.classList.remove("show");
 }
 
-document.getElementById("year").textContent = new Date().getFullYear();
 function openModel(src) {
   document.getElementById("modelFrame").src = src;
   document.getElementById("modelModal").classList.add("show");
