@@ -231,14 +231,23 @@ section.recent {
   margin-top: 20px;
 }
 
+/* bottom discord button */
 .contact-box a {
-  color: #4db8ff;
-  font-weight: 600;
+  display: inline-block;
+  background: #4db8ff;
+  color: black;
+  padding: 12px 26px;
+  border-radius: 12px;
+  font-weight: 700;
   text-decoration: none;
+  transition: 0.2s;
+  border: 2px solid #4db8ff;
 }
 
 .contact-box a:hover {
-  text-decoration: underline;
+  background: #82d0ff;
+  border-color: #82d0ff;
+  transform: scale(1.05);
 }
 
 /* --------------------------------------------------
