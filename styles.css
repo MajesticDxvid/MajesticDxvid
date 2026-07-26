@@ -210,10 +210,14 @@ body {
   transition: 0.3s;
 }
 
-.commission-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px #4db8ff;
+.commission-card {
+  transition: transform 0.2s ease;
 }
+
+.commission-card:hover {
+  transform: scale(1.03);
+}
+
 
 /* PORTFOLIO PAGE */
 .portfolio-section {
