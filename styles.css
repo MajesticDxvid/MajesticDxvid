@@ -176,7 +176,7 @@ body {
 
 /* Example thumbnails (replace with your own images) */
 .edit-card:nth-child(1) { background-image: url('images/image42.png'); }
-.edit-card:nth-child(2) { background-image: url('images/speamance.png'); }
+.edit-card:nth-child(2) { background-image: url('images/smp.png'); }
 .edit-card:nth-child(3) { background-image: url('images/image43.png'); }
 
 /* FOOTER */
