@@ -17,6 +17,24 @@ const edits = [
   { id: "5ieu8j_g48g", title: "Mobs SMP Promo Finished", img: "images/image43.png" }
 ];
 
+// Recent thumbnails (images in the images folder).
+const thumbnails = [
+  "images/thumb-01.jpg",
+  "images/thumb-02.jpg",
+  "images/thumb-03.jpg",
+  "images/thumb-04.jpg",
+  "images/thumb-05.jpg",
+  "images/thumb-06.jpg",
+  "images/thumb-07.jpg",
+  "images/thumb-08.jpg",
+  "images/thumb-09.jpg",
+  "images/thumb-10.jpg",
+  "images/thumb-11.jpg",
+  "images/thumb-12.jpg",
+  "images/thumb-13.jpg",
+  "images/thumb-14.jpg"
+];
+
 // Recent models (images in the images folder).
 const models = [
   "images/golden-axe.png",
@@ -65,6 +83,11 @@ edits.forEach((v) => {
   );
 });
 
+const thumbsTrack = document.getElementById("thumbsTrack");
+thumbnails.forEach((src) => {
+  thumbsTrack.appendChild(makeItem(src, "Thumbnail", () => openModel(src)));
+});
+
 const modelsTrack = document.getElementById("modelsTrack");
 models.forEach((src) => {
   modelsTrack.appendChild(makeItem(src, "Minecraft model", () => openModel(src)));
@@ -105,7 +128,8 @@ document.querySelectorAll(".carousel-container").forEach((container) => {
   bar.value = "0";
   bar.setAttribute(
     "aria-label",
-    "Scroll through " + (track.id === "modelsTrack" ? "models" : "videos")
+    "Scroll through " +
+      (track.id === "modelsTrack" ? "models" : track.id === "thumbsTrack" ? "thumbnails" : "videos")
   );
   container.after(bar);
   state.slider = bar;

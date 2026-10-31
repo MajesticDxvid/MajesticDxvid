@@ -718,3 +718,30 @@ iframe,
 .carousel-scroll:focus-visible {
   box-shadow: 0 0 0 2px var(--accent-light);
 }
+
+/* --------------------------------------------------
+   PHONES — stop the menu running off the screen
+-------------------------------------------------- */
+@media (max-width: 760px) {
+  .navbar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .nav-right {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 14px;
+  }
+
+  .nav-right a {
+    margin-left: 0;
+  }
+
+  .stats-row {
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-around;
+  }
+}
