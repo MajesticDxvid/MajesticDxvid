@@ -666,3 +666,55 @@ iframe,
     font-size: 0.85rem;
   }
 }
+
+/* --------------------------------------------------
+   CAROUSEL SCROLL BAR
+-------------------------------------------------- */
+.carousel-container {
+  touch-action: pan-y; /* lets people swipe sideways on phones */
+}
+
+.carousel-scroll {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: min(520px, 80%);
+  height: 6px;
+  margin: 18px auto 0;
+  background: var(--panel-border);
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+}
+
+.carousel-scroll::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 70px;
+  height: 12px;
+  border-radius: 6px;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(162, 89, 255, 0.6);
+  transition: background 0.2s;
+}
+
+.carousel-scroll::-moz-range-thumb {
+  width: 70px;
+  height: 12px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(162, 89, 255, 0.6);
+}
+
+.carousel-scroll:hover::-webkit-slider-thumb {
+  background: var(--accent-light);
+}
+
+.carousel-scroll:hover::-moz-range-thumb {
+  background: var(--accent-light);
+}
+
+.carousel-scroll:focus-visible {
+  box-shadow: 0 0 0 2px var(--accent-light);
+}

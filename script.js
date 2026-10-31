@@ -19,12 +19,15 @@ const edits = [
 
 // Recent models (images in the images folder).
 const models = [
+  "images/golden-axe.png",
+  "images/crystal-sword.png",
+  "images/pink-axe.png",
+  "images/void-sword.png",
+  "images/knife.png",
   "images/Aquatic.png",
   "images/midassword.png",
   "images/aquaticspear.png",
-  "images/VIP sword.png",
-  "images/aquatictrident.png",
-  "images/MVP sword.png"
+  "images/VIP sword.png"
 ];
 
 /* --------------------------------------------------
@@ -87,8 +90,86 @@ document.querySelectorAll(".carousel-container").forEach((container) => {
     speed: Number(container.dataset.speed) || 60, // pixels per second
     offset: 0,
     setWidth: 0,
-    hovered: false
+    hovered: false,
+    dragging: false,
+    slider: null
   };
+
+  // Scroll bar under the carousel
+  const bar = document.createElement("input");
+  bar.type = "range";
+  bar.className = "carousel-scroll";
+  bar.min = "0";
+  bar.max = "1000";
+  bar.step = "1";
+  bar.value = "0";
+  bar.setAttribute(
+    "aria-label",
+    "Scroll through " + (track.id === "modelsTrack" ? "models" : "videos")
+  );
+  container.after(bar);
+  state.slider = bar;
+
+  const setFromBar = () => {
+    state.offset = (Number(bar.value) / 1000) * state.setWidth;
+    applyOffset(state);
+  };
+  bar.addEventListener("input", () => {
+    state.dragging = true;
+    setFromBar();
+  });
+  bar.addEventListener("pointerdown", () => (state.dragging = true));
+  bar.addEventListener("pointerup", () => (state.dragging = false));
+  bar.addEventListener("change", () => (state.dragging = false));
+  bar.addEventListener("mouseenter", () => (state.hovered = true));
+  bar.addEventListener("mouseleave", () => (state.hovered = false));
+
+  // Trackpad / shift + mouse-wheel sideways scrolling
+  container.addEventListener(
+    "wheel",
+    (e) => {
+      const dx = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.shiftKey ? e.deltaY : 0;
+      if (!dx) return;
+      e.preventDefault();
+      nudge(state, dx);
+    },
+    { passive: false }
+  );
+
+  // Swipe / drag on phones and touchscreens
+  let startX = null;
+  let moved = false;
+  container.addEventListener("pointerdown", (e) => {
+    if (e.pointerType === "mouse") return;
+    startX = e.clientX;
+    moved = false;
+    state.dragging = true;
+  });
+  container.addEventListener("pointermove", (e) => {
+    if (startX === null) return;
+    const dx = startX - e.clientX;
+    if (Math.abs(dx) > 4) moved = true;
+    startX = e.clientX;
+    nudge(state, dx);
+  });
+  const endDrag = () => {
+    startX = null;
+    state.dragging = false;
+  };
+  container.addEventListener("pointerup", endDrag);
+  container.addEventListener("pointercancel", endDrag);
+  // Don't open a video if the visitor was swiping
+  container.addEventListener(
+    "click",
+    (e) => {
+      if (moved) {
+        e.stopPropagation();
+        e.preventDefault();
+        moved = false;
+      }
+    },
+    true
+  );
 
   // Add copies of the whole set so there is never a gap at the end.
   function fill() {
@@ -138,6 +219,20 @@ document.querySelectorAll(".carousel-container").forEach((container) => {
   carousels.push(state);
 });
 
+function applyOffset(c) {
+  if (c.setWidth <= 0) return;
+  c.offset = ((c.offset % c.setWidth) + c.setWidth) % c.setWidth;
+  c.track.style.transform = "translate3d(" + -c.offset + "px, 0, 0)";
+  if (c.slider && !c.dragging) {
+    c.slider.value = String(Math.round((c.offset / c.setWidth) * 1000));
+  }
+}
+
+function nudge(c, dx) {
+  c.offset += dx;
+  applyOffset(c);
+}
+
 function modalOpen() {
   return document.querySelector(".video-modal.show") !== null;
 }
@@ -148,10 +243,9 @@ function tick(now) {
   lastTime = now;
 
   carousels.forEach((c) => {
-    if (!c.hovered && !modalOpen() && !reduceMotion && c.setWidth > 0) {
+    if (!c.hovered && !c.dragging && !modalOpen() && !reduceMotion && c.setWidth > 0) {
       c.offset += c.speed * dt;
-      if (c.offset >= c.setWidth) c.offset -= c.setWidth;
-      c.track.style.transform = "translate3d(" + -c.offset + "px, 0, 0)";
+      applyOffset(c);
     }
   });
 
